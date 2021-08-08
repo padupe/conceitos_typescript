@@ -1,7 +1,11 @@
-import { Category } from '../modules/cars/model/Category'
-import { ICategoriesRepository, ICreateCategoryDTO } from './ICategoriesRepository';
+import { Category } from '../model/Category'
 
-class CategoriesRepository implements ICategoriesRepository {
+interface ICreateCategoryDTO {
+    name: string;
+    description: string;
+};
+
+class CategoriesRepository {
     private categories: Category[]= [];
 
     constructor() {
