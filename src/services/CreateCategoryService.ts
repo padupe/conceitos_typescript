@@ -1,3 +1,4 @@
+import { CategoriesRepository } from "../repositories/CategoriesRepository";
 
 interface IRequest {
     name: string;
@@ -5,13 +6,17 @@ interface IRequest {
 };
 
 class CreateCategoryService {
-    execute({name, description}: IRequest) {
-        const categoryValidate = categoriesRepository.findByName(name);
+    constructor(private categoriesRepository: CategoriesRepository) {
+
+    };
+
+    execute({name, description}: IRequest): void {
+        const categoryValidate = this.categoriesRepository.findByName(name);
         if (categoryValidate) {
             throw new Error('Category Already Exists!');
         };
 
-        categoriesRepository.create({ name, description });
+        this.categoriesRepository.create({ name, description });
     };
 
 };
