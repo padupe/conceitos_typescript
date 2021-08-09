@@ -43,6 +43,34 @@
             "description": "Category Already Exists."
           }
         }
+      },
+      "get": {
+        "tags": ["Category"],
+        "summary": "Lista all Categories",
+        "description": "List all registred categories ",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
