@@ -28,6 +28,8 @@ class CategoriesRepository implements ICategoriesRepository {
         });
             
         this.categories.push(category);
+
+        return category;
     };
 
     list(): Category[] {
