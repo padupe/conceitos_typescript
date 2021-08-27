@@ -7,6 +7,7 @@
 <div align="center" style="display: inline_block"><br>
       <img align="center" alt="Padupe-Node" height="40" width="40" src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg">
 </div>
+
 ---
 
 ## 💻 Como utilizar a Aplicação?
