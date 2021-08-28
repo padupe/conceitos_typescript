@@ -30,6 +30,7 @@ $ docker-compose up
 - [PostgreSQL](https://www.postgresql.org/ 'PostgreSQL')
 - [Prettier](https://prettier.io/ 'Prettier')
 - [Swagger](https://swagger.io/ 'Swagger')
+- [TSyringe](https://github.com/microsoft/tsyringe 'TSyringe')
 - [TypeORM](https://typeorm.io/#/ 'TypeORM')
 - [TypeScript](https://www.typescriptlang.org/ 'TypeScript')
 
