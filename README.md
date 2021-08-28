@@ -1,4 +1,4 @@
-# Ignite [Rocketseat](https://rocketseat.com.br/ "Rocketseat")
+# Ignite [Rocketseat](https://rocketseat.com.br/ 'Rocketseat')
 
 <div align="center">
     <h2>Trilha de Node.js</h2>
@@ -21,6 +21,16 @@ $ yarn install
 
 
 ```
+
+## 🔧 Ferramentas Utilizadas
+
+- [Docker](https://www.docker.com/ 'Docker')
+- [ESLint](https://eslint.org/ 'ESLint')
+- [PostgreSQL](https://www.postgresql.org/ 'PostgreSQL')
+- [Prettier](https://prettier.io/ 'Prettier')
+- [Swagger](https://swagger.io/ 'Swagger')
+- [TypeORM](https://typeorm.io/#/ 'TypeORM')
+- [TypeScript](https://www.typescriptlang.org/ 'TypeScript')
 
 ---
 
