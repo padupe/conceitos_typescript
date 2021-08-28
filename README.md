@@ -19,7 +19,8 @@ $ git clone https://github.com/padupe/conceitos_typescript
 # Instale as dependências
 $ yarn install
 
-
+#"Suba" os containers em Docker
+$ docker-compose up
 ```
 
 ## 🔧 Ferramentas Utilizadas
