@@ -11,7 +11,7 @@ services:
     environment:
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=ignite
-      - POSTGRES_DB=rentalx
+      - POSTGRES_DB:=rentalx 
     volumes:
       - pgdata:/data/postgres
 
@@ -28,6 +28,8 @@ services:
       - database_ignite
     depends_on:
       - database_ignite
+    environment: 
+      - DATABASE_URL=postgres://docker:ignite@db_ignite:5432
 
 volumes:
   pgdata:
