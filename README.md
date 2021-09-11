@@ -27,7 +27,9 @@ $ docker-compose up
 
 - [BCrypt](https://www.npmjs.com/package/bcrypt 'BCrypt')
 - [Docker](https://www.docker.com/ 'Docker')
+- [DotEnv](https://www.npmjs.com/package/dotenv 'DotEnv')
 - [ESLint](https://eslint.org/ 'ESLint')
+- [JSONWebToken](https://www.npmjs.com/package/jsonwebtoken 'JSONWebToken')
 - [PostgreSQL](https://www.postgresql.org/ 'PostgreSQL')
 - [Prettier](https://prettier.io/ 'Prettier')
 - [Swagger](https://swagger.io/ 'Swagger')
