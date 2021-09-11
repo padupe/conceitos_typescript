@@ -25,6 +25,7 @@ $ docker-compose up
 
 ## 🔧 Ferramentas Utilizadas
 
+- [BCrypt](https://www.npmjs.com/package/bcrypt 'BCrypt')
 - [Docker](https://www.docker.com/ 'Docker')
 - [ESLint](https://eslint.org/ 'ESLint')
 - [PostgreSQL](https://www.postgresql.org/ 'PostgreSQL')
