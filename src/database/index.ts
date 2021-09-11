@@ -6,7 +6,10 @@ interface IOptions {
 
 getConnectionOptions().then(options => {
     const newOptions = options as IOptions;
-    newOptions.host = 'rentx';
+    newOptions.host = 'localhost';
+    // A opção abaixo não estava funcionando corretamente com Container/Docker
+    // Alterei para 'localhost' para apenas o DB rodar em Docker
+    // newOptions.host = 'localhost';
     createConnection({
         ...options,
     });

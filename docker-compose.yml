@@ -13,35 +13,28 @@ services:
       - POSTGRES_DB=rentx
     volumes:
       - pgdata:/data/postgres
-    networks:
-      - backend
+    # networks:
+    #   - backend
   
-  # redis:
-  #   image: redis:alpine
-  #   ports:
-  #     - 6379:6379
-  #   restart: always
-
-  app:
-    build: .
-    container_name: rentx
-    ports:
-      - 3333:3333
-      - 9229:9229
-    volumes:
-      - ./:/usr/app
-    networks:
-      - backend
-    links:
-      - database_ignite
-    depends_on:
-      - database_ignite
-    #comand: ["wait-for-it", "database_ignite:5432", "--"]
+#   app:
+#     build: .
+#     container_name: rentx
+#     ports:
+#       - 3333:3333
+#       - 9229:9229
+#     volumes:
+#       - ./:/usr/app
+#     networks:
+#       - backend
+#     links:
+#       - database_ignite
+#     depends_on:
+#       - database_ignite
 
 volumes:
   pgdata:
     driver: local
 
-networks:
-  backend:
-    driver: bridge
+# networks:
+#   backend:
+#     driver: bridge
