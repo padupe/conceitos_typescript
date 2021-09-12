@@ -41,10 +41,15 @@ class AuthUserUseCase {
             expiresIn: "1d"
         });
 
-        return {
-            user,
-            token
-        };
+        const returnToken: IResponse = {
+            token,
+            user: {
+                name: user.name,
+                email: user.email
+            }
+        }
+
+        return returnToken;
     }
 }
 
