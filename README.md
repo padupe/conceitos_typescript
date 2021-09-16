@@ -23,12 +23,18 @@ $ yarn install
 $ docker-compose up
 ```
 
+## 📄 Documentação
+
+http://localhost:3333/api-docs/
+
 ## 🔧 Ferramentas Utilizadas
 
 - [BCrypt](https://www.npmjs.com/package/bcrypt 'BCrypt')
 - [Docker](https://www.docker.com/ 'Docker')
 - [DotEnv](https://www.npmjs.com/package/dotenv 'DotEnv')
 - [ESLint](https://eslint.org/ 'ESLint')
+- [Express](https://expressjs.com/pt-br/ 'Express')
+- [ExpressJS Async Errors](https://www.npmjs.com/package/express-async-errors 'ExpressJS Async Errors')
 - [JSONWebToken](https://www.npmjs.com/package/jsonwebtoken 'JSONWebToken')
 - [PostgreSQL](https://www.postgresql.org/ 'PostgreSQL')
 - [Prettier](https://prettier.io/ 'Prettier')
