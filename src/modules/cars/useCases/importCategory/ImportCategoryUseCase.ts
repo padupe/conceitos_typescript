@@ -1,14 +1,18 @@
 import fs from 'fs';
 import csvParse from 'csv-parse';
 import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
+import { inject, injectable } from 'tsyringe';
 
 interface IImportCategory {
     name: string;
     description: string;
 };
 
+@injectable()
 class ImportCategoryUseCase {
-    constructor(private categoriesRepository: ICategoriesRepository) {
+    constructor(
+        @inject("CategoriesRepository")
+        private categoriesRepository: ICategoriesRepository) {
 
     };
 
@@ -45,7 +49,7 @@ class ImportCategoryUseCase {
         categories.map(async categoryImport => {
             const { name, description } = categoryImport;
             
-            const existCategory = this.categoriesRepository.findByName(name);
+            const existCategory = await this.categoriesRepository.findByName(name);
             if(!existCategory) {
                 this.categoriesRepository.create({
                     name,
