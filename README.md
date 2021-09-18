@@ -21,6 +21,9 @@ $ yarn install
 
 # "Suba" os containers em Docker
 $ docker-compose up
+
+# Para rodar os testes
+$ yarn test
 ```
 
 ## 📄 Documentação
@@ -35,6 +38,7 @@ http://localhost:3333/api-docs/
 - [ESLint](https://eslint.org/ 'ESLint')
 - [Express](https://expressjs.com/pt-br/ 'Express')
 - [ExpressJS Async Errors](https://www.npmjs.com/package/express-async-errors 'ExpressJS Async Errors')
+- [Jest](https://jestjs.io/pt-BR/docs/cli 'Jest')
 - [JSONWebToken](https://www.npmjs.com/package/jsonwebtoken 'JSONWebToken')
 - [PostgreSQL](https://www.postgresql.org/ 'PostgreSQL')
 - [Prettier](https://prettier.io/ 'Prettier')
