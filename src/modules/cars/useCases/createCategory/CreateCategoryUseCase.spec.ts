@@ -1,3 +1,4 @@
+import { AppError } from "../../../../errors/AppError";
 import { CategoriesRepositoryInMemory } from "../../repositories/in-memory/CategoriesRepositoryInMemory";
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase"
 
@@ -25,10 +26,27 @@ describe("Create Category", () => {
         
         const categoryCreated = await categoriesRepositoryInMemory.findByName(newCategory.name);
 
-        console.log(categoryCreated);
-
         // Esperamos que o 'categoryCreated' possua a propriedade 'id'.
         // O 'id' só será criado se a Categoria não existir, conforme a regra de negócio.
         expect(categoryCreated).toHaveProperty('id');
+    });
+
+    it("should not be able to create a new category with name exists", async () => {
+        expect(async () => {
+            const newCategory = {
+                name: 'Category Test',
+                description: 'Category Description Test',
+            }
+    
+            await createCategoryUseCase.execute({
+                name: newCategory.name,
+                description: newCategory.description,
+            });
+    
+            await createCategoryUseCase.execute({
+                name: newCategory.name,
+                description: newCategory.description,
+            });
+        }).rejects.toBeInstanceOf(AppError);
     });
 })
