@@ -31,3 +31,5 @@ class UsersRepositoryInMemory implements IUsersRepository {
     };
 
 };
+
+export { UsersRepositoryInMemory };
