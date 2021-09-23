@@ -43,6 +43,7 @@ http://localhost:3333/api-docs/
 - [PostgreSQL](https://www.postgresql.org/ 'PostgreSQL')
 - [Prettier](https://prettier.io/ 'Prettier')
 - [Swagger](https://swagger.io/ 'Swagger')
+- [TSConfig-Paths](https://www.npmjs.com/package/tsconfig-paths, 'TSConfig-Paths')
 - [TSyringe](https://github.com/microsoft/tsyringe 'TSyringe')
 - [TypeORM](https://typeorm.io/#/ 'TypeORM')
 - [TypeScript](https://www.typescriptlang.org/ 'TypeScript')
