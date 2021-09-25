@@ -1,4 +1,5 @@
 import { CarsRepositoryInMemory } from "@modules/cars/repositories/in-memory/CarsRepositoryInMemory";
+import { AppError } from "@shared/errors/AppError";
 import { CreateCarUseCase } from "./CreateCarUseCase";
 
 
@@ -23,4 +24,28 @@ describe("Create Car", () => {
             category_id: "CategoryID"
         });
     });
+
+    it("Should not be able to create a car with exists license plate", () => {
+        expect(async () => {
+            await createCarUseCase.execute({
+                name: "Car Test 1",
+                description: "Description Car Test",
+                daily_rate: 100,
+                license_plate: "ABC1D34",
+                fine_amount: 60,
+                brand: "Brand Test",
+                category_id: "CategoryID"
+            });
+
+            await createCarUseCase.execute({
+                name: "Car Test 2",
+                description: "Description Car Test",
+                daily_rate: 100,
+                license_plate: "ABC1D34",
+                fine_amount: 60,
+                brand: "Brand Test",
+                category_id: "CategoryID"
+            });
+        }).rejects.toBeInstanceOf(AppError);
+    })
 });
