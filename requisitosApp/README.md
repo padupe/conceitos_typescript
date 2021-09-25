@@ -10,7 +10,6 @@
 
 - Apenas usuários com perfil "Administrador" podem realizar o Cadastro de um novo veículo.
 - Não deve ser possível cadastrar um veículo com placa já existente.
-- Não deve ser possível alterar a placa de um veículo já cadastrado.
 - O veículo deve ser cadastrado com disponibilidade por padrão.
 
 ---
