@@ -3,7 +3,6 @@
 **RF** - _Requisitos Funcionais_
 
 - Deve ser possível cadastrar um novo veículo.
-- Deve ser possível listar todas as categorias.
 
 **RNF** - _Requisitos Não Funcionais_
 
