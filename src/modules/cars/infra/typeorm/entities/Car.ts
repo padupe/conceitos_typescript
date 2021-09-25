@@ -26,8 +26,8 @@ class Car {
             this.id = uuidv4();
             this.available = true;
             this.created_at = new Date();
-        }
-    }
+        };
+    };
 };
 
 export { Car };
