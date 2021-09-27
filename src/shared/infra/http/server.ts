@@ -3,7 +3,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import swagger from 'swagger-ui-express';
 
-import  createConnection  from '../typeorm';
+import  '../typeorm';
 import '@shared/container'
 
 import { router } from '@shared/infra/http/routes';
@@ -24,7 +24,7 @@ app.use((err: Error, request: Request, response: Response, next: NextFunction) =
             message: err.message
         })
     };
-
+    console.log(err)
     return response.status(500).json({
         status: "error",
         message: `Internal server error - ${err.message}.`

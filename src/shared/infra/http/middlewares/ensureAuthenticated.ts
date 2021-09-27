@@ -4,6 +4,7 @@ import { AppError } from "@shared/errors/AppError";
 import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/UsersRepository";
 
 
+
 interface IPayload {
     sub: string;
 };
