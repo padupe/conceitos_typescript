@@ -1,12 +1,12 @@
 apiVersion: backstage.io/v1alpha1
-kind: Resource # Component, Template, API, Group, User, Resource, System, Domain, Location
+kind: API # Component, Template, API, Group, User, Resource, System, Domain, Location
 metadata:
   name: conceitos-typescript
   description: |
     Conceitos básicos do uso do TypeScript em uma API Node.js.
   links:
     - title: Website
-      url: http://wwww.rocketseat.com
+      url: http://wwww.rocketseta.com
     # - title: Documentation
     #   url: https://backstage.io/docs
     # - title: Storybook
