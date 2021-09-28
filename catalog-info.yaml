@@ -1,13 +1,20 @@
-apiVersion: backstage.io/v1alpha1
+apiVersion: portaldx/v1alpha1
 kind: API # Component, Template, API, Group, User, Resource, System, Domain, Location
 metadata:
   name: conceitos-typescript
   description: Conceitos básicos do uso do TypeScript em uma API Node.js.
+  tags:
+    - node.js
+    - typescript
+  links:
+    - url: https://www.rocketseat.com
+      title: Rockeseat
+      icon: code
 spec:
   type: openapi
   lifecycle: experimental
-  owner: SRE
-  system: typescript
+  owner: team-a
+  #system: typescript
   definiton: |
     openapi: "3.0.0"
     info:
