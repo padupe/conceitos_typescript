@@ -27,4 +27,6 @@ describe("List Cars", () => {
 
         expect(listCars).toEqual([newCar]);
     });
+
+    it("Should be able to list all available cars by name")
 });
