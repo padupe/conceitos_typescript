@@ -36,8 +36,6 @@
 **RF** - _Requisitos Funcionais_
 
 - Deve ser possível cadastrar uma especificação para um veículo.
-- Deve ser possível listar todas as especificações cadastradas.
-- Deve ser possível listar todos os veículos.
 
 **RNF** - _Requisitos Não Funcionais_
 
