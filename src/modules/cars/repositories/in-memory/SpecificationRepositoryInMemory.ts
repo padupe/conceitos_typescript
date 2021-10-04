@@ -1,5 +1,5 @@
 import { Specification } from "@modules/cars/infra/typeorm/entities/Specification";
-import { ICreateSpecificationDTO, ISpecificationsRepository } from "../ISpecificatonsRepository";
+import { ICreateSpecificationDTO, ISpecificationsRepository } from "../ISpecificationsRepository";
 
 
 
@@ -7,7 +7,7 @@ class SpecificationRepositoryInMemory implements ISpecificationsRepository {
 
     specifications: Specification[] = [];
 
-    async create({ name, description }: ICreateSpecificationDTO): Promise<void> {
+    async create({ name, description }: ICreateSpecificationDTO): Promise<Specification> {
         const newSpecification = new Specification();
 
         Object.assign(newSpecification, {
@@ -16,6 +16,8 @@ class SpecificationRepositoryInMemory implements ISpecificationsRepository {
         });
         
         this.specifications.push(newSpecification);
+
+        return newSpecification;
     };
 
     async findByName(name: string): Promise<Specification> {
