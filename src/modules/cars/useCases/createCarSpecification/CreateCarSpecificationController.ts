@@ -7,7 +7,7 @@ class CreateCarSpecificationController {
     async handle(request: Request, response: Response): Promise<Response> {
 
         const { id } = request.params;
-        const {specifications_id } = request.body;
+        const { specifications_id } = request.body;
 
         const createCarSpecificationUseCase = container.resolve(CreateCarSpecificationUseCase)
 
@@ -16,7 +16,6 @@ class CreateCarSpecificationController {
             specifications_id,
         });
 
-        console.log(carSpecification)
         return response.status(201).json(carSpecification);
     };
 };
