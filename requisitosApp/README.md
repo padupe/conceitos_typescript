@@ -53,7 +53,6 @@
 **RF** - _Requisitos Funcionais_
 
 - Deve ser possível cadastrar a imagem do veículo.
-- Deve ser possível listar todos os veículos.
 
 **RNF** - _Requisitos Não Funcionais_
 
