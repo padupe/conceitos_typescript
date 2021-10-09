@@ -1,11 +1,8 @@
-import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
 import { AppError } from "@shared/errors/AppError";
 
-dayjs.extend(utc);
+
 
 interface IRequest {
     user_id: string;
@@ -35,9 +32,9 @@ class CreateRentalUseCase {
             throw new AppError('There is a rental is progress for user!')
         };
 
-        const expectedReturnFormat = dayjs(expected_return_date).utc().local().format();
+        const expectedReturnFormat = 
         const dateNow = dayjs().utc().local().format();
-        const compare = dayjs(expectedReturnFormat).diff(dateNow, "hours");
+        const compare = 
 
         if(compare < minHoursRental) {
             throw new AppError('Invalid return time!')    
