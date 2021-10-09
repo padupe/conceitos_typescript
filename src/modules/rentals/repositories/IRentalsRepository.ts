@@ -1,3 +1,4 @@
+import { Rental } from "../infra/typeorm/entities/Rental";
 
 
 
