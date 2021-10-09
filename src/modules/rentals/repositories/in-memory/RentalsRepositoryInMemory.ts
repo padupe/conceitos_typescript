@@ -23,6 +23,7 @@ class RentalsRepositoryInMemory implements IRentalsRepository {
             car_id,
             user_id,
             expected_return_date,
+            start_date: new Date(),
         });
 
         this.rentals.push(newRental);
