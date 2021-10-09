@@ -1,5 +1,6 @@
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { AppError } from "@shared/errors/AppError";
 
 
@@ -13,7 +14,8 @@ interface IRequest {
 class CreateRentalUseCase {
 
     constructor(
-        private rentalsRepository: IRentalsRepository
+        private rentalsRepository: IRentalsRepository,
+        private dateProvider: IDateProvider,
     ) {}
 
     async execute({ user_id, car_id, expected_return_date }: IRequest): Promise<Rental> {
@@ -32,9 +34,8 @@ class CreateRentalUseCase {
             throw new AppError('There is a rental is progress for user!')
         };
 
-        const expectedReturnFormat = 
-        const dateNow = dayjs().utc().local().format();
-        const compare = 
+        const dateNow = this.dateProvider.dateNow();
+        const compare = this.dateProvider.compareInHours(dateNow, expected_return_date);
 
         if(compare < minHoursRental) {
             throw new AppError('Invalid return time!')    
