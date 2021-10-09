@@ -1,12 +1,15 @@
+import dayjs from 'dayjs';
 import { RentalsRepositoryInMemory } from "@modules/rentals/repositories/in-memory/RentalsRepositoryInMemory";
 import { AppError } from "@shared/errors/AppError";
-import { CreateRentalUseCase } from "./CreateRentalUseCase"
+import { CreateRentalUseCase } from "./CreateRentalUseCase";
 
 
 let createRentalUseCase: CreateRentalUseCase;
 let rentalsRepositoryInMemory: RentalsRepositoryInMemory;
 
 describe('Create Rental', () => {
+
+    const dayAdd24H = dayjs().add(1, 'day').toDate()
 
     beforeEach(() => {
         rentalsRepositoryInMemory = new RentalsRepositoryInMemory();
@@ -18,7 +21,7 @@ describe('Create Rental', () => {
         const newRental = await createRentalUseCase.execute({
             user_id: 'User123456',
             car_id: 'Car123456',
-            expected_return_date: new Date(),
+            expected_return_date: dayAdd24H,
         });
 
         expect(newRental).toHaveProperty('id');
@@ -31,13 +34,13 @@ describe('Create Rental', () => {
             await createRentalUseCase.execute({
                 user_id: 'User123456',
                 car_id: 'Car123456',
-                expected_return_date: new Date(),
+                expected_return_date: dayAdd24H,
             });
     
             const newRental = await createRentalUseCase.execute({
                 user_id: 'User123456',
                 car_id: 'Car123456',
-                expected_return_date: new Date(),
+                expected_return_date: dayAdd24H,
             });
         }).rejects.toBeInstanceOf(AppError);
     });
@@ -48,13 +51,13 @@ describe('Create Rental', () => {
             await createRentalUseCase.execute({
                 user_id: 'User7891011',
                 car_id: 'CarBlock',
-                expected_return_date: new Date(),
+                expected_return_date: dayAdd24H,
             });
     
             const newRental = await createRentalUseCase.execute({
                 user_id: 'User123456',
                 car_id: 'CarBlock',
-                expected_return_date: new Date(),
+                expected_return_date: dayAdd24H,
             });
         }).rejects.toBeInstanceOf(AppError);
     });
