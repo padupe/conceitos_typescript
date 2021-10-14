@@ -4,6 +4,7 @@ import 'express-async-errors';
 import swagger from 'swagger-ui-express';
 
 import  '../typeorm';
+// Não esquecer de realizar o import do Container [TSyringe]
 import '@shared/container'
 
 import { router } from '@shared/infra/http/routes';
