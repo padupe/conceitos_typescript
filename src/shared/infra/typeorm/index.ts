@@ -21,7 +21,11 @@ getConnectionOptions().then(options => {
 
 //     return createConnection(
 //         Object.assign(defaultOptions, {
-//             host,    
+//             host,
+//             database:
+//                 process.env.NODE_ENV === 'test'
+//                     ? 'rentx_test'
+//                     : defaultOptions.database    
 //         })
 //     )
 // }

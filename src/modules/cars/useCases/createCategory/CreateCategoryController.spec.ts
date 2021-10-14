@@ -5,7 +5,13 @@ import request from 'supertest';
 
 describe('Create Category Controller', async () => {
     
-    it('test', async () => {
-        await request(app).get('/cars/available').expect(200);
+    it('Should be able to create a new category', async () => {
+
+        const response = await request(app).post('/categories').send({
+            name: "Category Integration Test",
+            description: "Description Integration Test"
+        });
+
+        expect(response.status).toBe(201);
     })
 })
