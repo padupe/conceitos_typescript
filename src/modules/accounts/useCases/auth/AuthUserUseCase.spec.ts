@@ -43,7 +43,7 @@ describe("Authenticate User", () => {
         }).rejects.toBeInstanceOf(AppError);
     });
 
-    it("Should not be able to authentica with incorrect password", async () => {
+    it("Should not be able to authenticate with incorrect password", async () => {
         expect(async() => {
             const failUser: ICreateUserDTO = {
                 name: "Fail User",
