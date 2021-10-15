@@ -36,8 +36,6 @@
 **RF** - _Requisitos Funcionais_
 
 - Deve ser possível cadastrar uma especificação para um veículo.
-- Deve ser possível listar todas as especificações cadastradas.
-- Deve ser possível listar todos os veículos.
 
 **RNF** - _Requisitos Não Funcionais_
 
@@ -55,7 +53,6 @@
 **RF** - _Requisitos Funcionais_
 
 - Deve ser possível cadastrar a imagem do veículo.
-- Deve ser possível listar todos os veículos.
 
 **RNF** - _Requisitos Não Funcionais_
 
@@ -81,6 +78,7 @@
 - O aluguel deve ter duração mínima de 24 (vinte e quatro) horas.
 - Não deve ser possível cadastrar um novo aluguel caso já exista para o mesmo usuário.
 - Não deve ser possível cadastrar um novo aluguel caso já exista para o mesmo veículo.
+- O usuário deve estar "logado" na Aplicação.
 
 ---
 

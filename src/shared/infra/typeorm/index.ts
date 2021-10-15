@@ -5,9 +5,16 @@ interface IOptions {
 }
 
 // Mudança no Código para setar um Usuário Admin
-getConnectionOptions().then(options => {
+const createConnectionDB = getConnectionOptions().then(options => {
+
+    let hostDB = 'localhost'
+
+    if(process.env.NODE_ENV === 'test') {
+        hostDB = 'rentx'
+    }
+
     const newOptions = options as IOptions;
-    newOptions.host = 'localhost';
+    newOptions.host = hostDB;
     // A opção abaixo não estava funcionando corretamente com Container/Docker
     // Alterei para 'localhost' para apenas o DB rodar em Docker
     // newOptions.host = 'localhost';
@@ -16,12 +23,18 @@ getConnectionOptions().then(options => {
     });
 });
 
+export { createConnectionDB };
+
 // export default async(host = 'localhost'): Promise<Connection> => {
 //     const defaultOptions = await getConnectionOptions();
 
 //     return createConnection(
 //         Object.assign(defaultOptions, {
-//             host,    
+//             host,
+//             database:
+//                 process.env.NODE_ENV === 'test'
+//                     ? 'rentx_test'
+//                     : defaultOptions.database    
 //         })
 //     )
 // }
