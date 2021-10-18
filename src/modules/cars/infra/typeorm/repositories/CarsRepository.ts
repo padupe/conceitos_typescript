@@ -64,7 +64,7 @@ class CarsRepository implements ICarsRepository {
         return findCar;
     };
     
-    async updateAvailabel(id: string, available: boolean): Promise<void> {
+    async updateAvailable(id: string, available: boolean): Promise<void> {
         await this.repository.createQueryBuilder().update().set({ available }).where('id = :id').setParameters({ id }).execute();
     };
 };
