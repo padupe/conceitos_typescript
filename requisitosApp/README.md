@@ -79,6 +79,7 @@
 - Não deve ser possível cadastrar um novo aluguel caso já exista para o mesmo usuário.
 - Não deve ser possível cadastrar um novo aluguel caso já exista para o mesmo veículo.
 - O usuário deve estar "logado" na Aplicação.
+- Ao realizar um aluguel, o _status_ do veículo deverá ser alterado para **indisponível**.
 
 ---
 
