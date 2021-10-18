@@ -82,6 +82,25 @@
 
 ---
 
+# 🚘️ Devolução de Veículos
+
+**RF** - _Requisitos Funcionais_
+
+- Deve ser possível realizar a devolução de um veículo.
+
+**RNF** - _Requisitos Não Funcionais_
+
+**RN** - _Regras de Negócios_
+
+- Se o carro for devolvido com menos de 24 horas, deverá ser cobrada a diária completa.
+- Ao realizar a devolução, o veículo deverá ser liberado para outro aluguel.
+- Ao realizar a devolução. o usuário deverá ser liberado para realizar outro aluguel.
+- Ao realizar a devolução, a aplicação deverá realizar o cálculo do valor total do aluguel.
+- Caso o horário de devolução seja superior ao previsto de entrega, deverá ser cobrado multa proporcional aos dias de atraso.
+- Caso exista multa, o valor deverá ser adicionado ao valor total do aluguel.
+
+---
+
 # 🚘️ Modelo
 
 **RF** - _Requisitos Funcionais_
