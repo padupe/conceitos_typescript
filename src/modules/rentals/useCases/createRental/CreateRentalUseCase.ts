@@ -52,7 +52,7 @@ class CreateRentalUseCase {
             expected_return_date,            
         });
 
-        await this.carsRepository.updateAvailabel(car_id, false);
+        await this.carsRepository.updateAvailable(car_id, false);
 
         return newRental;
     };
