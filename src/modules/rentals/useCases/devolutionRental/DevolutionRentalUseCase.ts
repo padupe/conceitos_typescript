@@ -21,7 +21,7 @@ class DevolutionRentalUseCase {
         private dateProvider: IDateProvider,
     ){};
 
-    async handle({ id, user_id }: IRequest): Promise<Rental> {
+    async execute({ id, user_id }: IRequest): Promise<Rental> {
 
         const minDaily = 1;
 
