@@ -12,7 +12,7 @@ class ListRentalsByUserUseCase {
     ){};
 
 
-    async execute(user_id: string): Promise<Rental> {
+    async execute(user_id: string): Promise<Rental[]> {
         const findRentalsByUser = await this.rentalsRepository.findByUser(user_id);
         return findRentalsByUser;
     };
