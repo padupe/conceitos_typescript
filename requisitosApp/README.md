@@ -103,6 +103,18 @@
 
 ---
 
+# 🚘️ Listagem de Alugéis por Usuário
+
+**RF** - _Requisitos Funcionais_
+
+- Deve ser possível realizar a busca de todos os aluguéis por usuário.
+
+**RN** - _Regras de Negócios_
+
+- O usuário deve estar logado na Aplicação.
+
+---
+
 # 🚘️ Modelo
 
 **RF** - _Requisitos Funcionais_
