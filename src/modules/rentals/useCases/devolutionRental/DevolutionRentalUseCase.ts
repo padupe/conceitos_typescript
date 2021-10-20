@@ -28,7 +28,7 @@ class DevolutionRentalUseCase {
 
         // Localizar o id do Aluguel
         const findRental = await this.rentalsRepository.findById(id);
-        const findCar = await this.carsRepository.findById(id);
+        const findCar = await this.carsRepository.findById(findRental.car_id);
 
         if(!findRental) {
             throw new AppError('Rental does not exists!')
