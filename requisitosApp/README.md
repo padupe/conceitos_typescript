@@ -103,7 +103,7 @@
 
 ---
 
-# 🚘️ Listagem de Alugéis por Usuário
+# 🚘️ Listagem de Aluguéis por Usuário
 
 **RF** - _Requisitos Funcionais_
 
