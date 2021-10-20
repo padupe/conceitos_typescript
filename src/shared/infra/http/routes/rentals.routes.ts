@@ -9,6 +9,6 @@ const createRentalController = new CreateRentalController();
 const devolutionRentalController = new DevolutionRentalController();
 
 rentalsRoutes.post('/', ensureAuthenticated, createRentalController.handle);
-rentalsRoutes.post('/', ensureAuthenticated, devolutionRentalController.handle);
+rentalsRoutes.post('/devolution/:id', ensureAuthenticated, devolutionRentalController.handle);
 
 export { rentalsRoutes };
