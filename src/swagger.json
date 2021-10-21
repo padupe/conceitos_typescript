@@ -79,6 +79,7 @@
         "tags": ["Category"],
         "summary": "Upload a new category",
         "description": "Upload a file with a category",
+        "security": [{ "bearerAuth": [] }],
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -106,6 +107,7 @@
         "tags": ["Specifications"],
         "summary": "Create a specification",
         "description": "Create a new Specification",
+        "security": [{ "bearerAuth": [] }],
         "requestBody": {
           "content": {
             "application/json": {
