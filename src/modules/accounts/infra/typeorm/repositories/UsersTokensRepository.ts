@@ -11,8 +11,16 @@ class UsersTokensRepository implements IUsersTokensRepository {
         this.repository = getRepository(UserTokens);
     };
 
-    create({ user_id, expires_date, refresh_token }: ICreateUserTokenDTO): Promise<UserTokens> {
-        throw new Error("Method not implemented.");
+    async create({ user_id, expires_date, refresh_token }: ICreateUserTokenDTO): Promise<UserTokens> {
+        const userToken = this.repository.create({
+            user_id,
+            expires_date,
+            refresh_token,
+        });
+
+        await this.repository.save(userToken);
+
+        return userToken;
     };
 };
 
