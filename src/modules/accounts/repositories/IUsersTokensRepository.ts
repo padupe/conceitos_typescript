@@ -1,0 +1,7 @@
+
+
+class IUsersTokensRepository {
+
+};
+
+export { IUsersTokensRepository };
