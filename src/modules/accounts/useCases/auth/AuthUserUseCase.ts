@@ -5,6 +5,7 @@ import { sign } from "jsonwebtoken";
 import { AppError } from "@shared/errors/AppError";
 import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
 import auth from "@config/auth";
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 
 interface IRequest {
     email: string;
@@ -26,7 +27,10 @@ class AuthUserUseCase {
         private usersRepository: IUsersRepository,
 
         @inject("UsersTokensRepository")
-        private usersTokensRepository: IUsersTokensRepository
+        private usersTokensRepository: IUsersTokensRepository,
+
+        @inject("DayJSDateProvider")
+        private dayJSDateProvider: IDateProvider
     ){}
 
     async execute({ email, password }: IRequest): Promise<IResponse> {
