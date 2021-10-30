@@ -4,6 +4,7 @@ import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepositor
 import { sign } from "jsonwebtoken";
 import { AppError } from "@shared/errors/AppError";
 import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
+import auth from "@config/auth";
 
 interface IRequest {
     email: string;
@@ -41,9 +42,9 @@ class AuthUserUseCase {
             throw new AppError("User or Password Incorrect!", 401)
         }
 
-        const token = sign({}, "IgniteRocketSeat", {
+        const token = sign({}, auth.secret_token, {
             subject: user.id,
-            expiresIn: "1d"
+            expiresIn: auth.expires_in_token
         });
 
         const returnToken: IResponse = {
