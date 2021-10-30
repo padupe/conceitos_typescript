@@ -9,8 +9,7 @@ class UsersTokensRepository implements IUsersTokensRepository {
 
     constructor() {
         this.repository = getRepository(UserTokens);
-    }
-;
+    };
 
     async create({ user_id, expires_date, refresh_token }: ICreateUserTokenDTO): Promise<UserTokens> {
         const userToken = this.repository.create({
@@ -31,6 +30,10 @@ class UsersTokensRepository implements IUsersTokensRepository {
         });
         return findUser;
     };
+
+    async deleteById(id: string): Promise<void> {
+        await this.repository.delete(id);
+    }
 };
 
 export { UsersTokensRepository };
