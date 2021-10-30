@@ -31,7 +31,7 @@ class AuthUserUseCase {
 
     async execute({ email, password }: IRequest): Promise<IResponse> {
 
-        const { secret_token, expires_in_token, secret_refreh_token } = auth;
+        const { secret_token, expires_in_token, secret_refresh_token, expires_in_refresh_token } = auth;
 
         //Verificar se o usuário existe
         const user = await this.usersRepository.findByEmail(email);
@@ -50,10 +50,15 @@ class AuthUserUseCase {
             expiresIn: expires_in_token
         });
 
+        const refreshToken = sign({ email }, secret_refresh_token, {
+            subject: user.id,
+            expiresIn: expires_in_refresh_token
+        })
+
         await this.usersTokensRepository.create({
             user_id: user.id,
             expires_date,
-            refresh_token
+            refresh_token: refreshToken
         })
 
         const returnToken: IResponse = {
