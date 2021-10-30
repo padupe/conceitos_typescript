@@ -18,6 +18,7 @@ interface IResponse{
         email: string;
     };
     token: string;
+    refresh_token: string;
 }
 
 @injectable()
@@ -35,7 +36,7 @@ class AuthUserUseCase {
 
     async execute({ email, password }: IRequest): Promise<IResponse> {
 
-        const { secret_token, expires_in_token, secret_refresh_token, expires_in_refresh_token } = auth;
+        const { secret_token, expires_in_token, secret_refresh_token, expires_in_refresh_token, expires_refresh_token_days } = auth;
 
         //Verificar se o usuário existe
         const user = await this.usersRepository.findByEmail(email);
@@ -57,21 +58,24 @@ class AuthUserUseCase {
         const refreshToken = sign({ email }, secret_refresh_token, {
             subject: user.id,
             expiresIn: expires_in_refresh_token
-        })
+        });
+
+        const refreshTokenExpiresDate = this.dayJSDateProvider.addDays(expires_refresh_token_days);
 
         await this.usersTokensRepository.create({
             user_id: user.id,
-            expires_date,
+            expires_date: refreshTokenExpiresDate,
             refresh_token: refreshToken
-        })
+        });
 
         const returnToken: IResponse = {
             token,
             user: {
                 name: user.name,
                 email: user.email
-            }
-        }
+            },
+            refresh_token: refreshToken
+        };
 
         return returnToken;
     }
