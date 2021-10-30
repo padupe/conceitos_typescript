@@ -30,6 +30,9 @@ class AuthUserUseCase {
     ){}
 
     async execute({ email, password }: IRequest): Promise<IResponse> {
+
+        const { secret_token, expires_in_token, secret_refreh_token } = auth;
+
         //Verificar se o usuário existe
         const user = await this.usersRepository.findByEmail(email);
         if(!user) {
@@ -42,10 +45,16 @@ class AuthUserUseCase {
             throw new AppError("User or Password Incorrect!", 401)
         }
 
-        const token = sign({}, auth.secret_token, {
+        const token = sign({}, secret_token, {
             subject: user.id,
-            expiresIn: auth.expires_in_token
+            expiresIn: expires_in_token
         });
+
+        await this.usersTokensRepository.create({
+            user_id: user.id,
+            expires_date,
+            refresh_token
+        })
 
         const returnToken: IResponse = {
             token,
