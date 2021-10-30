@@ -1,23 +1,28 @@
 import auth from '@config/auth';
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
+import { IDateProvider } from '@shared/container/providers/DateProvider/IDateProvider';
 import { AppError } from '@shared/errors/AppError';
-import { verify } from 'jsonwebtoken';
+import { verify, sign } from 'jsonwebtoken';
 import { inject } from 'tsyringe';
 
 interface IPayload {
     sub: string;
+    email: string;
 };
 
 class RefreshTokenUseCase {
     constructor(
         @inject("UsersTokensRepository")
-        private usersTokensRepository: IUsersTokensRepository
+        private usersTokensRepository: IUsersTokensRepository,
+
+        @inject("DayJSDateProvider")
+        private dayJSDateProvider: IDateProvider
     ){}
 
     async execute(token: string) {
-        const decode = verify(token, auth.secret_refresh_token) as IPayload;
+    const { sub, email} = verify(token, auth.secret_refresh_token) as IPayload;
 
-        const user_id = decode.sub;
+        const user_id = sub;
 
         const userToken = await this.usersTokensRepository.findByUserIdAndRefreshToken(user_id, token);
 
@@ -25,7 +30,22 @@ class RefreshTokenUseCase {
             throw new AppError('Refresh Token does not exists!', 404)
         };
 
-        await this.usersTokensRepository.deleteById(userToken.id)
+        await this.usersTokensRepository.deleteById(userToken.id);
+
+        const refreshToken = sign({ email }, auth.secret_refresh_token, {
+            subject: sub,
+            expiresIn: auth.expires_in_refresh_token
+        });
+
+        const expiresDate = this.dayJSDateProvider.addDays(auth.expires_refresh_token_days);
+
+        await this.usersTokensRepository.create({
+            expires_date: expiresDate,
+            refresh_token: refreshToken,
+            user_id
+        })
+
+        return refreshToken;
     };
 };
 
