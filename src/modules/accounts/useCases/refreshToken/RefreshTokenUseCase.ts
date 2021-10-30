@@ -1,5 +1,6 @@
 import auth from '@config/auth';
 import { IUsersTokensRepository } from '@modules/accounts/repositories/IUsersTokensRepository';
+import { AppError } from '@shared/errors/AppError';
 import { verify } from 'jsonwebtoken';
 import { inject } from 'tsyringe';
 
@@ -13,12 +14,18 @@ class RefreshTokenUseCase {
         private usersTokensRepository: IUsersTokensRepository
     ){}
 
-    execute(token: string) {
+    async execute(token: string) {
         const decode = verify(token, auth.secret_refresh_token) as IPayload;
 
         const user_id = decode.sub;
 
-        await this.usersTokensRepository.findByUserId(user_id)
+        const userToken = await this.usersTokensRepository.findByUserIdAndRefreshToken(user_id, token);
+
+        if(!userToken) {
+            throw new AppError('Refresh Token does not exists!', 404)
+        };
+
+        await this.usersTokensRepository.deleteById(userToken.id)
     };
 };
 
