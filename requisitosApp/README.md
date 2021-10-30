@@ -115,6 +115,21 @@
 
 ---
 
+# 🔐 Recuperar Senha
+
+**RF** - _Requisitos Funcionais_
+
+- Deve ser possível o usuário recuperar a senha informando o e-mail.
+- O usuário deve receber um e-mail com o passo a passo para a recuperação da senha.
+- O usuário deve conseguir gerar uma nova senha de acesso.
+
+**RN** - _Regras de Negócios_
+
+- O usuário precisa informar uma nova senha.
+- O link enviado para a recuperação da senha deve expirar em 3 horas.
+
+---
+
 # 🚘️ Modelo
 
 **RF** - _Requisitos Funcionais_
