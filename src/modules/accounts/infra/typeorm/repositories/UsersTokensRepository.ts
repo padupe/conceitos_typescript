@@ -9,7 +9,8 @@ class UsersTokensRepository implements IUsersTokensRepository {
 
     constructor() {
         this.repository = getRepository(UserTokens);
-    };
+    }
+;
 
     async create({ user_id, expires_date, refresh_token }: ICreateUserTokenDTO): Promise<UserTokens> {
         const userToken = this.repository.create({
@@ -21,6 +22,11 @@ class UsersTokensRepository implements IUsersTokensRepository {
         await this.repository.save(userToken);
 
         return userToken;
+    };
+
+    async findByUserId(user_id: string): Promise<UserTokens[]> {
+        const findUsers = await this.repository.find({user_id});
+        return findUsers;
     };
 };
 
