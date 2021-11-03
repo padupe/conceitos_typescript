@@ -43,7 +43,6 @@ class SendForgotPasswordMailUseCase {
 
         await this.mailProvider.sendMail(email, "Recuperação de Senha", `O link para o reset é ${tokenEmail}`);
     };
-
 };
 
 export { SendForgotPasswordMailUseCase };

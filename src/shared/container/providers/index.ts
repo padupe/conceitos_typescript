@@ -9,7 +9,8 @@ container.registerSingleton<IDateProvider>(
     DayJSDateProvider
 );
 
-container.registerSingleton<IMailProvider>(
+// registerInstance, pois o serviço precisa ser iniciado em conjunto com a Aplicação
+container.registerInstance<IMailProvider>(
     "EtherealMailProvider",
-    EtherealMailProvider
+    new EtherealMailProvider()
 );
