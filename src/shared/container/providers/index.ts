@@ -10,7 +10,10 @@ container.registerSingleton<IDateProvider>(
 );
 
 // registerInstance, pois o serviço precisa ser iniciado em conjunto com a Aplicação
-container.registerInstance<IMailProvider>(
+// Código comentado pois não estava funcionando correatamente nas linhas 14 e 17.
+// container.registerInstance<IMailProvider>(
+container.registerSingleton<IMailProvider>(
     "EtherealMailProvider",
-    new EtherealMailProvider()
+    // new EtherealMailProvider()
+    EtherealMailProvider
 );
