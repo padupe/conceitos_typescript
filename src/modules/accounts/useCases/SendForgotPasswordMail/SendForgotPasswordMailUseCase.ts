@@ -23,7 +23,7 @@ class SendForgotPasswordMailUseCase {
         private mailProvider: IMailProvider
     ){}
 
-    async execute(email: string) {
+    async execute(email: string): Promise<void> {
 
         const user = await this.usersRepository.findByEmail(email);
 
@@ -41,6 +41,7 @@ class SendForgotPasswordMailUseCase {
             expires_date: expiresHours
         });
 
+        await this.mailProvider.sendMail(email, "Recuperação de Senha", `O link para o reset é ${tokenEmail}`);
     };
 
 };
