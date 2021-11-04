@@ -38,7 +38,7 @@ class ResetPasswordUserUseCase {
             throw new AppError('Token Expired', 401);
         };
 
-        const user = await this.usersRepository.findById(userToken.id);
+        const user = await this.usersRepository.findById(userToken.user_id);
 
         // Realiza a Criptografia da NOVA SENHA
         user.password = await hash(password, 10);
