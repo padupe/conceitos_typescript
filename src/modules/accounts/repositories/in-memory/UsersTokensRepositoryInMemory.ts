@@ -23,9 +23,12 @@ class UsersTokensRepositoryInMemory implements IUsersTokensRepository {
         return userToken;
     };
 
-    findByUserIdAndRefreshToken(user_id: string, refresh_token: string): Promise<UserTokens> {
-        throw new Error("Method not implemented.");
-    }
+    async findByUserIdAndRefreshToken(user_id: string, refresh_token: string): Promise<UserTokens> {
+        const userToken = this.usersTokens.find((user) => user.user_id === user_id && user.refresh_token === refresh_token);
+
+        return userToken;
+    };
+
     deleteById(id: string): Promise<void> {
         throw new Error("Method not implemented.");
     }
