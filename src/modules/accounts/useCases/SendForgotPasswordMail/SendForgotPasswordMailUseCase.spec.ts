@@ -2,6 +2,7 @@ import { UsersRepositoryInMemory } from "@modules/accounts/repositories/in-memor
 import { UsersTokensRepositoryInMemory } from "@modules/accounts/repositories/in-memory/UsersTokensRepositoryInMemory";
 import { DayJSDateProvider } from "@shared/container/providers/DateProvider/implementations/DayJSDateProvider";
 import { MailProviderInMemory } from "@shared/container/providers/MailProvider/in-memory/MailProviderInMemory";
+import { AppError } from "@shared/errors/AppError";
 import { SendForgotPasswordMailUseCase } from "./SendForgotPasswordMailUseCase"
 
 let sendForgotPasswordMailUseCase: SendForgotPasswordMailUseCase;
@@ -40,5 +41,11 @@ describe("Send Forgot Mail", () => {
         await sendForgotPasswordMailUseCase.execute("usertest@test.com");
 
         expect(sendEmail).toHaveBeenCalled();
-    })
-})
+    });
+
+    it("Should not be able to send an email if user does not exists", async () => {
+        await expect(
+            sendForgotPasswordMailUseCase.execute("fail@mail.com.br")
+        ).rejects.toEqual(new AppError("User does not exists!"))
+    });
+});
