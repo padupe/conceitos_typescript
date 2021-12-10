@@ -79,6 +79,7 @@
 - Não deve ser possível cadastrar um novo aluguel caso já exista para o mesmo usuário.
 - Não deve ser possível cadastrar um novo aluguel caso já exista para o mesmo veículo.
 - O usuário deve estar "logado" na Aplicação.
+- Ao realizar um aluguel, o _status_ do veículo deverá ser alterado para **indisponível**.
 
 ---
 
@@ -98,6 +99,34 @@
 - Ao realizar a devolução, a aplicação deverá realizar o cálculo do valor total do aluguel.
 - Caso o horário de devolução seja superior ao previsto de entrega, deverá ser cobrado multa proporcional aos dias de atraso.
 - Caso exista multa, o valor deverá ser adicionado ao valor total do aluguel.
+- O usuário deve estar "logado" na Aplicação.
+
+---
+
+# 🚘️ Listagem de Aluguéis por Usuário
+
+**RF** - _Requisitos Funcionais_
+
+- Deve ser possível realizar a busca de todos os aluguéis por usuário.
+
+**RN** - _Regras de Negócios_
+
+- O usuário deve estar logado na Aplicação.
+
+---
+
+# 🔐 Recuperar Senha
+
+**RF** - _Requisitos Funcionais_
+
+- Deve ser possível o usuário recuperar a senha informando o e-mail.
+- O usuário deve receber um e-mail com o passo a passo para a recuperação da senha.
+- O usuário deve conseguir gerar uma nova senha de acesso.
+
+**RN** - _Regras de Negócios_
+
+- O usuário precisa informar uma nova senha.
+- O link enviado para a recuperação da senha deve expirar em 3 horas.
 
 ---
 
