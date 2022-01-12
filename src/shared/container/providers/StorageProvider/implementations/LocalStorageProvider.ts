@@ -1,16 +1,29 @@
+import fs from "fs";
+import { resolve } from "path";
+import upload from "@config/upload";
 import { IStorageProvider } from "../IStorageProvider";
 
-
-
 class LocalStorageProvider implements IStorageProvider {
-    save(file: string): Promise<string> {
-        throw new Error("Method not implemented.");
-    }
-    delete(file: string): Promise<void> {
-        throw new Error("Method not implemented.");
-    }
+    async save(file: string, folder: string): Promise<string> {
+        fs.promises.rename(
+            resolve(upload.tmpFolder, file),
+            resolve(`${upload.tmpFolder}/${folder}`, file)
+        );
 
+        return file;
+    };
+
+    async delete(file: string, folder: string): Promise<void> {
+        const fileName = resolve(`${upload.tmpFolder}/${folder}`, file);
+
+        try {
+            await fs.promises.stat(fileName);
+        } catch {
+            return;
+        };
     
+        await fs.promises.unlink(fileName);
+    };    
 };
 
 export { LocalStorageProvider };
