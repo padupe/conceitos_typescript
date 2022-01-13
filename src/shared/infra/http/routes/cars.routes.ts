@@ -10,7 +10,7 @@ import { UploadCarImageController } from '@modules/cars/useCases/uploadCarImage/
 
 const carsRoutes = Router();
 
-const uploadImageCar = multer(uploadConfig.upload("./tmp/cars"));
+const uploadImageCar = multer(uploadConfig);
 
 const createCarController = new CreateCarController();
 const listAvalaibleController = new ListAvailableCarController();
