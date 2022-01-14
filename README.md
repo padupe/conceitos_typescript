@@ -40,6 +40,7 @@ http://localhost:3333/api-docs/
 - [ExpressJS Async Errors](https://www.npmjs.com/package/express-async-errors 'ExpressJS Async Errors')
 - [Jest](https://jestjs.io/pt-BR/docs/cli 'Jest')
 - [JSONWebToken](https://www.npmjs.com/package/jsonwebtoken 'JSONWebToken')
+- [Mime](https://www.npmjs.com/package/mime, 'Mime')
 - [Multer](https://www.npmjs.com/package/multer 'Multer')
 - [PostgreSQL](https://www.postgresql.org/ 'PostgreSQL')
 - [Prettier](https://prettier.io/ 'Prettier')
