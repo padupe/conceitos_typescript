@@ -5,7 +5,6 @@ import mime from "mime";
 import { resolve } from "path";
 import { IStorageProvider } from "../IStorageProvider";
 
-
 class S3StorageProvider implements IStorageProvider {
 
     private client: S3;
@@ -24,7 +23,7 @@ class S3StorageProvider implements IStorageProvider {
         const contentType = mime.getType(originalName);
 
         await this.client.putObject({
-            Bucket: `${process.env.AWS_BUCKET}`,
+            Bucket: `${process.env.AWS_BUCKET}/${folder}`,
             Key: file,
             ACL: "public-read",
             Body: fileContent,
