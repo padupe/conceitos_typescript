@@ -11,12 +11,17 @@ import '@shared/container'
 import { router } from '@shared/infra/http/routes';
 import swaggerConfig from '../../../swagger.json';
 import { AppError } from '@shared/errors/AppError';
+import upload from '@config/upload';
 
 
 const app = express();
 app.use(express.json());
 
 app.use('/api-docs', swagger.serve, swagger.setup(swaggerConfig));
+
+// Utilizado para verificar o "endereço" que os arquivos estãos endo salvos LOCALMENTE
+app.use('/avatar', express.static(`${upload.tmpFolder}/avatar`));
+app.use('/cars', express.static(`${upload.tmpFolder}/cars`));
 
 app.use(router);
 
