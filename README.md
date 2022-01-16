@@ -33,6 +33,7 @@ http://localhost:3333/api-docs/
 ## 🔧 Ferramentas Utilizadas
 
 - [BCrypt](https://www.npmjs.com/package/bcrypt 'BCrypt')
+- [Class-Transformer](https://www.npmjs.com/package/class-transformer 'Clas-Transformer')
 - [Docker](https://www.docker.com/ 'Docker')
 - [DotEnv](https://www.npmjs.com/package/dotenv 'DotEnv')
 - [ESLint](https://eslint.org/ 'ESLint')
