@@ -4,7 +4,7 @@ interface IUserResponseDTO {
     email: string;
     avatar: string;
     driver_license: string;
-    getAvatarURL: string;
+    getAvatarURL(): string;
 };
 
 export { IUserResponseDTO };
