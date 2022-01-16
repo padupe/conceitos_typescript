@@ -1,0 +1,7 @@
+
+
+class ProfileUserController {
+
+};
+
+export { ProfileUserController };
