@@ -3,4 +3,5 @@ coverage/
 .env*
 .vscode
 tmp/*
+!tmp/.gitkeep
 dist
