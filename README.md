@@ -33,6 +33,7 @@ http://localhost:3333/api-docs/
 ## 🔧 Ferramentas Utilizadas
 
 - [BCrypt](https://www.npmjs.com/package/bcrypt 'BCrypt')
+- [Class-Transformer](https://www.npmjs.com/package/class-transformer 'Clas-Transformer')
 - [Docker](https://www.docker.com/ 'Docker')
 - [DotEnv](https://www.npmjs.com/package/dotenv 'DotEnv')
 - [ESLint](https://eslint.org/ 'ESLint')
@@ -40,6 +41,7 @@ http://localhost:3333/api-docs/
 - [ExpressJS Async Errors](https://www.npmjs.com/package/express-async-errors 'ExpressJS Async Errors')
 - [Jest](https://jestjs.io/pt-BR/docs/cli 'Jest')
 - [JSONWebToken](https://www.npmjs.com/package/jsonwebtoken 'JSONWebToken')
+- [Mime](https://www.npmjs.com/package/mime, 'Mime')
 - [Multer](https://www.npmjs.com/package/multer 'Multer')
 - [PostgreSQL](https://www.postgresql.org/ 'PostgreSQL')
 - [Prettier](https://prettier.io/ 'Prettier')
