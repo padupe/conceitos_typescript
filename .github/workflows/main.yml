@@ -33,4 +33,5 @@ jobs:
           # O que quero copiar, no caso colocando ".", informo que todo o Projeto
           # O ! indica qual pasta/arquivo que deve(m) ser ignorado(s)
           source: "., !node_modules"
-          target: "test"
+          # Pasta para onde será "colado" todo o conteúdo
+          target: "~/app/conceitos_typescript"
