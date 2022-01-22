@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      
+      - name: Install Dependencies
+        run: yarn
+        
+      - name: Build
+        run: yarn build
+      
+      - uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          # O que quero copiar, no caso colocando ".", informo que todo o Projeto
+          # O ! indica qual pasta/arquivo que deve(m) ser ignorado(s)
+          source: "., !node_modules"
+          # Pasta para onde será "colado" todo o conteúdo
+          target: "~/app/conceitos_typescript"
