@@ -34,6 +34,7 @@ http://localhost:3333/api-docs/
 
 - [BCrypt](https://www.npmjs.com/package/bcrypt 'BCrypt')
 - [Class-Transformer](https://www.npmjs.com/package/class-transformer 'Clas-Transformer')
+- [Cors](https://www.npmjs.com/package/cors 'Cors')
 - [Docker](https://www.docker.com/ 'Docker')
 - [DotEnv](https://www.npmjs.com/package/dotenv 'DotEnv')
 - [ESLint](https://eslint.org/ 'ESLint')
