@@ -4,6 +4,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import swagger from 'swagger-ui-express';
 import cors from "cors";
+import rateLimiter from './middlewares/rateLimiter';
 
 import  '../typeorm';
 // Não esquecer de realizar o import do Container [TSyringe]
@@ -16,6 +17,7 @@ import upload from '@config/upload';
 
 
 const app = express();
+app.use(rateLimiter);
 app.use(express.json());
 
 app.use('/api-docs', swagger.serve, swagger.setup(swaggerConfig));
